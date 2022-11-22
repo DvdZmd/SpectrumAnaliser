@@ -181,6 +181,9 @@ bool MainWindow::scrollMouse(GdkEventScroll* eventScroll)
 
 
     //Width & heigth of the visible image with zoom factor aplyed
+    float previousWidth = spectrumDrawingArea.scaledFrameWidth;
+    float previousHeight = spectrumDrawingArea.scaledFrameHeight;
+
     this->spectrumDrawingArea.scaledFrameWidth = SPECTRUM_AREA_WIDTH * this->spectrumDrawingArea.zoomFactor;
     this->spectrumDrawingArea.scaledFrameHeight = SPECTRUM_AREA_HEIGHT * this->spectrumDrawingArea.zoomFactor;
 
@@ -193,8 +196,13 @@ bool MainWindow::scrollMouse(GdkEventScroll* eventScroll)
 
 
     //Set the x,y coordinates in the camera frame to be the up left corner of the visible image
-    // this->spectrumDrawingArea.xUpLeftCorner = (CAMERA_FRAME_WIDTH / 2) - (this->spectrumDrawingArea.scaledFrameWidth / 2);
-    // this->spectrumDrawingArea.yUpLeftCorner = (CAMERA_FRAME_HEIGHT / 2) - (this->spectrumDrawingArea.scaledFrameHeight / 2);
+    spectrumDrawingArea.xUpLeftCorner +=  ((previousWidth - this->spectrumDrawingArea.scaledFrameWidth ) ) / 2.0;
+    spectrumDrawingArea.yUpLeftCorner +=  (( previousHeight -this->spectrumDrawingArea.scaledFrameHeight  ))/ 2.0;
+
+    if(spectrumDrawingArea.xUpLeftCorner < 0)
+        spectrumDrawingArea.xUpLeftCorner = 0;
+    if(spectrumDrawingArea.yUpLeftCorner < 0)
+        spectrumDrawingArea.yUpLeftCorner = 0;
 
     if(this->spectrumDrawingArea.xUpLeftCorner + this->spectrumDrawingArea.scaledFrameWidth > CAMERA_FRAME_WIDTH)
         this->spectrumDrawingArea.xUpLeftCorner = CAMERA_FRAME_WIDTH - this->spectrumDrawingArea.scaledFrameWidth;
