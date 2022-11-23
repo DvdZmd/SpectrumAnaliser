@@ -15,6 +15,9 @@ public:
     HistogramDrawingArea histogramDrwArea;
     SpectrumDrawingArea spectrumDrawingArea;
 
+    uint8_t arrayHistograma[HISTOGRAM_WIDTH];
+
+
     Loger log;
     int machineStateSettingArea = 1;
 

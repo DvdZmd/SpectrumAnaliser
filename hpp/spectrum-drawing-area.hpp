@@ -39,6 +39,7 @@ public:
     float newDeltaY;
 
 
+    uint8_t *arrayHistograma;
     
 protected:
 
@@ -54,7 +55,6 @@ protected:
     bool everyNowAndThen();
 
 private:
-    uint8_t arrayHistograma[640];
     sigc::connection everyNowAndThenConnection; //https://developer.gnome.org/libsigc%2B%2B/2.2/structsigc_1_1connection.html#details
     cv::Mat webcam;
     cv::Mat output;
@@ -64,7 +64,7 @@ private:
     int cols,rows;
     int bytesPerPixel;
     int bytesPerFila;
-    int filaAnalizar;
+    int filaAnalizar = SPECTRUM_AREA_HEIGHT / 2;
 
 
 };

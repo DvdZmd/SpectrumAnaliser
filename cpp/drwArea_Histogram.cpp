@@ -51,18 +51,24 @@ bool HistogramDrawingArea::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
     cr->line_to(width,height);
     cr->line_to(width,0);
     cr->line_to(0,0);
+    cr->stroke();
 
+    cr->set_source_rgb(0.0, 0.0, 0.0);
 
+    cr->move_to(0,HISTOGRAM_HEIGHT / 2);
+    for(int i = 0; i < HISTOGRAM_WIDTH; i++)
+    {
+        cr->line_to(i, arrayHistograma[i]);
+    }
     cr->stroke();
 
 
-    // //Me paro al final del frame y continuo desde ahí porque estoy usando el mismo Drawing Area
-    // for(int j = publicRawFrame.rows; j < publicRawFrame.rows+256; j++)
+    // if(capturar == true)
     // {
-    //     cr->move_to(0,j);
-    //     cr->line_to(cols,j);
+    //     auto pixels = Gdk::Pixbuf::create(this->get_window(), 0, 480, 640, 256);
+    //     pixels->save("/home/pi/RAMFolder/s.png", "png");
+    //     capturar = false;
     // }
-
 
     // Don't stop calling me.
     return true;

@@ -11,6 +11,9 @@ public:
     virtual ~HistogramDrawingArea();
     Glib::RefPtr<Gdk::Pixbuf> pixBufHistogram;
 
+    uint8_t *arrayHistograma;
+
+
 protected:
 
     int width, height;

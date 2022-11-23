@@ -28,7 +28,9 @@ MainWindow::MainWindow(int width, int height)
 
     //Set widgets configuratios
     spectrumDrawingArea.set_size_request(SPECTRUM_AREA_WIDTH, SPECTRUM_AREA_HEIGHT);
+    spectrumDrawingArea.arrayHistograma = arrayHistograma;
     histogramDrwArea.set_size_request(HISTOGRAM_WIDTH, HISTOGRAM_HEIGHT);
+    histogramDrwArea.arrayHistograma = arrayHistograma;
 
     // Add the box in this window:
     add(principalBox);

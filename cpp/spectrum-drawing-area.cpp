@@ -38,7 +38,6 @@ SpectrumDrawingArea::SpectrumDrawingArea()
     //Set the x,y coordinates in the camera frame to be the up left corner of the visible image
     xUpLeftCorner = (CAMERA_FRAME_WIDTH / 2) - (scaledFrameWidth / 2);
     yUpLeftCorner = (CAMERA_FRAME_HEIGHT / 2) - (scaledFrameHeight / 2);
-
 }
 
 SpectrumDrawingArea::~SpectrumDrawingArea()
@@ -95,18 +94,15 @@ bool SpectrumDrawingArea::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
 void SpectrumDrawingArea::onDrawCameraCapture(const Cairo::RefPtr<Cairo::Context>& cr)
 {
     // Prevent the drawing if size is 0:
-    if (width <= 1 || height <= 1) {
+    if (width <= 1 || height <= 1)
         return;
-    }
     
     // Capture camera frame:
     videoCapture.read(publicRawFrame);
 
-
     cv::Mat privateRaw = publicRawFrame(Rect(xUpLeftCorner, yUpLeftCorner, scaledFrameWidth, scaledFrameHeight));
     resize(privateRaw, privateRaw, cv::Size(SPECTRUM_AREA_WIDTH, SPECTRUM_AREA_HEIGHT), 0, 0, cv::INTER_LINEAR);
-
-
+    
     ///Creo el pixBuf con el frame de la cámara para mostrarlo en DrawingArea
     publicPixBuf = Gdk::Pixbuf::create_from_data(
         (guint8*)privateRaw.data,//data: Image data in 8-bit/sample packed format.
@@ -119,7 +115,7 @@ void SpectrumDrawingArea::onDrawCameraCapture(const Cairo::RefPtr<Cairo::Context
     
     SetAnalizeProperties();
 
-
+    //This is for swith the frame from BGR to RGB
     for(int i = 0; i < cols; i++)
     {
         for(int j = 0; j < rows; j++)
@@ -131,18 +127,22 @@ void SpectrumDrawingArea::onDrawCameraCapture(const Cairo::RefPtr<Cairo::Context
             
             pixelsPtr[offset] = r;
             pixelsPtr[offset + 2] = b;
+
+            if(j == filaAnalizar)
+            {
+                if(filaClick < 0)
+                    filaAnalizar = publicPixBuf->get_height()/2;
+                else
+                    filaAnalizar = filaClick;
+                uint8_t val = (uint8_t)((b+g+r) / 3);
+                arrayHistograma[i] = val;
+            }
         }
     }
-
-    GenerateHistogramArray();
-    BlankHistogramZone(cr);
 
     ///Muestro el frame el DrawingArea
     Gdk::Cairo::set_source_pixbuf(cr, publicPixBuf);
     cr->paint();
-
-    if(!setingArea)
-        GraphHistograma(cr);
 }
 
 void SpectrumDrawingArea::SetAnalizeProperties()
@@ -152,86 +152,13 @@ void SpectrumDrawingArea::SetAnalizeProperties()
     cols           = publicPixBuf->get_width();
     rows           = publicPixBuf->get_height();
     bytesPerPixel  = publicPixBuf->get_n_channels();
-    bytesPerFila   = publicPixBuf->get_rowstride();
-    
-}
-
-void SpectrumDrawingArea::GenerateHistogramArray()
-{
-    // //Uso este vector alterno para copiar los valores por un problema interno del for
-    // uint8_t alterno[cols];
-    // static uint8_t val;
-
-    // static uint8_t B = 0; // B
-    // static uint8_t G = 0; // G
-    // static uint8_t R = 0; // R
-
-
-    // if(filaClick < 0)
-    //     filaAnalizar = publicRawFrame.rows/2;
-    // else
-    //     filaAnalizar = filaClick;
-
-    // //Itero una fila (filaAnalizar) por la cantidad de columnas
-    // for(int j = 0; j < cols; j++)
-    // {
-    //     // //Obtengo los 3 valores rgb por cada pixel
-    //     // int offset         = filaAnalizar*bytesPerFila + j*bytesPerPixel ;
-    //     // B                  = pixelsPtr[offset]; // B
-    //     // G                  = pixelsPtr[offset+1]; // G
-    //     // R                  = pixelsPtr[offset+2]; // R
-    //     // //calculo el promedio que será mi intensidad relativa para el espectro
-    //     // val                = (uint8_t)((R+G+B) / 3);
-    //     // alterno[j]         = val;
-    //     // //Guardo las mediciones que obtuve para luego graficarlas
-    //     // arrayHistograma[j] = alterno[j];
-    // }
-}
-
-
-
-void SpectrumDrawingArea::GraphHistograma(const Cairo::RefPtr<Cairo::Context>& cr)
-{
-
-    //Grafico el histograma
-    cr->set_source_rgb(0.0,0.0,0.0);
-    cr->move_to(0,publicRawFrame.rows+256);
-    for(int i = 0; i < cols; i++)
-    {
-        cr->line_to(i,publicRawFrame.rows+256 - arrayHistograma[i]);
-    }
-    cr->stroke();
-
-    if(capturar == true)
-    {
-        auto pixels = Gdk::Pixbuf::create(this->get_window(), 0, 480, 640, 256);
-        pixels->save("/home/pi/RAMFolder/s.png", "png");
-        capturar = false;
-    }
-}
-
-void SpectrumDrawingArea::BlankHistogramZone(const Cairo::RefPtr<Cairo::Context>& cr)
-{
-        //Grafico un fondo blanco
-    cr->set_source_rgb(1.0,1.0,1.0);
-    cr->set_line_width(1.0);
-    cr->move_to(0,publicRawFrame.rows+256);
-
-    //Me paro al final del frame y continuo desde ahí porque estoy usando el mismo Drawing Area
-    for(int j = publicRawFrame.rows; j < publicRawFrame.rows+256; j++)
-    {
-        cr->move_to(0,j);
-        cr->line_to(cols,j);
-    }
-    cr->stroke();
+    bytesPerFila   = publicPixBuf->get_rowstride();    
 }
 
 void SpectrumDrawingArea::onDrawFromImage()
 {
 
 }
-
-
 
 uint8_t* SpectrumDrawingArea::getHistograma()
 {
