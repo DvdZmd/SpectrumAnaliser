@@ -118,26 +118,18 @@ void SpectrumDrawingArea::onDrawCameraCapture(const Cairo::RefPtr<Cairo::Context
     //This is for swith the frame from BGR to RGB
     for(int i = 0; i < cols; i++)
     {
-        for(int j = 0; j < rows; j++)
-        {
-            int offset = j * bytesPerFila + i * bytesPerPixel;
-            char b = pixelsPtr[offset];
-            char g = pixelsPtr[offset + 1];
-            char r = pixelsPtr[offset + 2];
-            
-            pixelsPtr[offset] = r;
-            pixelsPtr[offset + 2] = b;
+        if(filaClick < 0)
+            filaAnalizar = publicPixBuf->get_height()/2;
+        else
+            filaAnalizar = filaClick;
 
-            if(j == filaAnalizar)
-            {
-                if(filaClick < 0)
-                    filaAnalizar = publicPixBuf->get_height()/2;
-                else
-                    filaAnalizar = filaClick;
-                uint8_t val = (uint8_t)((b+g+r) / 3);
-                arrayHistograma[i] = val;
-            }
-        }
+        int offset = filaAnalizar * bytesPerFila + i * bytesPerPixel;
+        char b = pixelsPtr[offset];
+        char g = pixelsPtr[offset + 1];
+        char r = pixelsPtr[offset + 2];
+
+        uint8_t val = (uint8_t)((b+g+r) / 3);
+        arrayHistograma[i] = val;
     }
 
     ///Muestro el frame el DrawingArea

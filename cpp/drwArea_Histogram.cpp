@@ -47,19 +47,20 @@ bool HistogramDrawingArea::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
     cr->set_source_rgb(1.0, 0.0, 0.0);
     cr->set_line_width(5);
     cr->move_to(0,0);
-    cr->line_to(0,height);
-    cr->line_to(width,height);
-    cr->line_to(width,0);
+    cr->line_to(0,HISTOGRAM_HEIGHT);
+    cr->line_to(HISTOGRAM_WIDTH,HISTOGRAM_HEIGHT);
+    cr->line_to(HISTOGRAM_WIDTH,0);
     cr->line_to(0,0);
     cr->stroke();
 
+    cr->set_line_width(2);
     cr->set_source_rgb(0.0, 0.0, 0.0);
-
     cr->move_to(0,HISTOGRAM_HEIGHT / 2);
     for(int i = 0; i < HISTOGRAM_WIDTH; i++)
     {
         cr->line_to(i, arrayHistograma[i]);
     }
+
     cr->stroke();
 
 

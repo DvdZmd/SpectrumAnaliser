@@ -42,6 +42,7 @@ private:
     bool scrollMouse(GdkEventScroll*);
     bool clickUp(GdkEventButton*);
     bool mouseMove(GdkEventMotion*);
+    bool mouseClick(GdkEventMotion*);
 
     bool probablyInFullScreen;
 

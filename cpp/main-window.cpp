@@ -84,9 +84,7 @@ void MainWindow::ConnectSignals()
     spectrumDrawingArea.signal_motion_notify_event().connect(
         sigc::mem_fun(*this, &MainWindow::mouseMove)
     );
-
 }
-
 
 
 bool MainWindow::clickDown(GdkEventButton* button_event)
@@ -95,6 +93,7 @@ bool MainWindow::clickDown(GdkEventButton* button_event)
 
     previousX = button_event->x;
     previousY = button_event->y;
+    spectrumDrawingArea.filaClick = (int)button_event->y;
 
     // if(!spectrumDrawingArea.setingArea)
     //     spectrumDrawingArea.filaClick = (int)button_event->y;
@@ -189,7 +188,7 @@ bool MainWindow::scrollMouse(GdkEventScroll* eventScroll)
     this->spectrumDrawingArea.scaledFrameWidth = SPECTRUM_AREA_WIDTH * this->spectrumDrawingArea.zoomFactor;
     this->spectrumDrawingArea.scaledFrameHeight = SPECTRUM_AREA_HEIGHT * this->spectrumDrawingArea.zoomFactor;
 
-    //validations for evade a overflow
+    //validations for evade overflow
     if(this->spectrumDrawingArea.scaledFrameWidth >= CAMERA_FRAME_WIDTH)
         this->spectrumDrawingArea.scaledFrameWidth = CAMERA_FRAME_WIDTH;
     if(this->spectrumDrawingArea.scaledFrameHeight >= CAMERA_FRAME_HEIGHT)
@@ -201,6 +200,7 @@ bool MainWindow::scrollMouse(GdkEventScroll* eventScroll)
     spectrumDrawingArea.xUpLeftCorner +=  ((previousWidth - this->spectrumDrawingArea.scaledFrameWidth ) ) / 2.0;
     spectrumDrawingArea.yUpLeftCorner +=  (( previousHeight -this->spectrumDrawingArea.scaledFrameHeight  ))/ 2.0;
 
+    //validations for evade overflow
     if(spectrumDrawingArea.xUpLeftCorner < 0)
         spectrumDrawingArea.xUpLeftCorner = 0;
     if(spectrumDrawingArea.yUpLeftCorner < 0)
