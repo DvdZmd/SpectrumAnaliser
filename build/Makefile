@@ -150,32 +150,32 @@ src/cpp/drwArea_Histogram.cpp.s:
 	$(MAKE) -f CMakeFiles/rascapp.dir/build.make CMakeFiles/rascapp.dir/src/cpp/drwArea_Histogram.cpp.s
 .PHONY : src/cpp/drwArea_Histogram.cpp.s
 
-src/cpp/loger.o: src/cpp/loger.cpp.o
+src/cpp/logger.o: src/cpp/logger.cpp.o
 
-.PHONY : src/cpp/loger.o
+.PHONY : src/cpp/logger.o
 
 # target to build an object file
-src/cpp/loger.cpp.o:
-	$(MAKE) -f CMakeFiles/rascapp.dir/build.make CMakeFiles/rascapp.dir/src/cpp/loger.cpp.o
-.PHONY : src/cpp/loger.cpp.o
+src/cpp/logger.cpp.o:
+	$(MAKE) -f CMakeFiles/rascapp.dir/build.make CMakeFiles/rascapp.dir/src/cpp/logger.cpp.o
+.PHONY : src/cpp/logger.cpp.o
 
-src/cpp/loger.i: src/cpp/loger.cpp.i
+src/cpp/logger.i: src/cpp/logger.cpp.i
 
-.PHONY : src/cpp/loger.i
+.PHONY : src/cpp/logger.i
 
 # target to preprocess a source file
-src/cpp/loger.cpp.i:
-	$(MAKE) -f CMakeFiles/rascapp.dir/build.make CMakeFiles/rascapp.dir/src/cpp/loger.cpp.i
-.PHONY : src/cpp/loger.cpp.i
+src/cpp/logger.cpp.i:
+	$(MAKE) -f CMakeFiles/rascapp.dir/build.make CMakeFiles/rascapp.dir/src/cpp/logger.cpp.i
+.PHONY : src/cpp/logger.cpp.i
 
-src/cpp/loger.s: src/cpp/loger.cpp.s
+src/cpp/logger.s: src/cpp/logger.cpp.s
 
-.PHONY : src/cpp/loger.s
+.PHONY : src/cpp/logger.s
 
 # target to generate assembly for a file
-src/cpp/loger.cpp.s:
-	$(MAKE) -f CMakeFiles/rascapp.dir/build.make CMakeFiles/rascapp.dir/src/cpp/loger.cpp.s
-.PHONY : src/cpp/loger.cpp.s
+src/cpp/logger.cpp.s:
+	$(MAKE) -f CMakeFiles/rascapp.dir/build.make CMakeFiles/rascapp.dir/src/cpp/logger.cpp.s
+.PHONY : src/cpp/logger.cpp.s
 
 src/cpp/main-window.o: src/cpp/main-window.cpp.o
 
@@ -270,9 +270,9 @@ help:
 	@echo "... src/cpp/drwArea_Histogram.o"
 	@echo "... src/cpp/drwArea_Histogram.i"
 	@echo "... src/cpp/drwArea_Histogram.s"
-	@echo "... src/cpp/loger.o"
-	@echo "... src/cpp/loger.i"
-	@echo "... src/cpp/loger.s"
+	@echo "... src/cpp/logger.o"
+	@echo "... src/cpp/logger.i"
+	@echo "... src/cpp/logger.s"
 	@echo "... src/cpp/main-window.o"
 	@echo "... src/cpp/main-window.i"
 	@echo "... src/cpp/main-window.s"

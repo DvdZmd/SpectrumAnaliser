@@ -649,7 +649,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/cpp/loger.cpp",
+			"path" : "src/cpp/logger.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],
