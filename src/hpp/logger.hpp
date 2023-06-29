@@ -9,17 +9,18 @@
 class Logger 
 {
 	public:
-		static Logger getInstance() throw ();
+		static Logger* getInstance();
 
 		void setLogPath(std::string);
-
+		void clearLog();
+		void writeLog(std::string);
 	private:
 		static Logger* m_Instance;
 		std::string logFilePath;
 
-		// Loger(); 
+		Logger(); 
 		// Loger(std::string); 
-		// ~Loger();
+		~Logger();
 		
 		// std::string logFilePath;
 		

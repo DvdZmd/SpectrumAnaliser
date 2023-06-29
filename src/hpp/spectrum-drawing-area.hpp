@@ -4,7 +4,7 @@
 #include <gtkmm.h>
 #include <opencv2/highgui.hpp>
 #include "defines.h"
-#include "loger.hpp"
+#include "logger.hpp"
 
 
 
@@ -24,7 +24,7 @@ public:
     bool setingArea = false;
     int xInicial = 0, xFinal = 640;
 
-    Loger* log;
+    Logger* logger;
 
     //for image move and zoom
     float zoomFactor = 0.5;

@@ -33,7 +33,7 @@ add_executable(rascapp
     src/cpp/main-window.cpp
     src/cpp/drwArea_Histogram.cpp
     src/cpp/spectrum-drawing-area.cpp
-    src/cpp/loger.cpp
+    src/cpp/logger.cpp
 )
 
 # Add folder with all headers:

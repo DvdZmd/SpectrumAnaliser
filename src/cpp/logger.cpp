@@ -1,8 +1,8 @@
-#include "../hpp/loger.hpp"
+#include "../hpp/logger.hpp"
 
 Logger* Logger::m_Instance = 0;
 
-Logger* logger::getInstance()
+Logger* Logger::getInstance()
 {
     if (m_Instance == 0) 
     {

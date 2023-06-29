@@ -42,11 +42,10 @@ MainWindow::MainWindow(int width, int height)
 
     logger = Logger::getInstance();
 
-    std::string path = "/mnt/ra
-    mdisk/log.txt";
-    log->setLogPath(path);
-    log->clearLog();
-    log->writeLog("Hola");
+    std::string path = "/mnt/ramdisk/log.txt";
+    logger->setLogPath(path);
+    logger->clearLog();
+    logger->writeLog("Hola");
 
     // spectrumDrawingArea.log = &log;
 }
