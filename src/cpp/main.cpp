@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 
-#include "main-window.hpp"
+#include "../hpp/main-window.hpp"
 
 int main(int argc, char* argv[])
 {

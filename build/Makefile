@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/Develop/Spect/src
+CMAKE_SOURCE_DIR = /home/pi/repos/SpectrumAnaliser
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/Develop/Spect/src/build
+CMAKE_BINARY_DIR = /home/pi/repos/SpectrumAnaliser/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Develop/Spect/src/build/CMakeFiles /home/pi/Develop/Spect/src/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/repos/SpectrumAnaliser/build/CMakeFiles /home/pi/repos/SpectrumAnaliser/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Develop/Spect/src/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/repos/SpectrumAnaliser/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -123,140 +123,140 @@ rascapp/fast:
 	$(MAKE) -f CMakeFiles/rascapp.dir/build.make CMakeFiles/rascapp.dir/build
 .PHONY : rascapp/fast
 
-cpp/drwArea_Histogram.o: cpp/drwArea_Histogram.cpp.o
+src/cpp/drwArea_Histogram.o: src/cpp/drwArea_Histogram.cpp.o
 
-.PHONY : cpp/drwArea_Histogram.o
-
-# target to build an object file
-cpp/drwArea_Histogram.cpp.o:
-	$(MAKE) -f CMakeFiles/rascapp.dir/build.make CMakeFiles/rascapp.dir/cpp/drwArea_Histogram.cpp.o
-.PHONY : cpp/drwArea_Histogram.cpp.o
-
-cpp/drwArea_Histogram.i: cpp/drwArea_Histogram.cpp.i
-
-.PHONY : cpp/drwArea_Histogram.i
-
-# target to preprocess a source file
-cpp/drwArea_Histogram.cpp.i:
-	$(MAKE) -f CMakeFiles/rascapp.dir/build.make CMakeFiles/rascapp.dir/cpp/drwArea_Histogram.cpp.i
-.PHONY : cpp/drwArea_Histogram.cpp.i
-
-cpp/drwArea_Histogram.s: cpp/drwArea_Histogram.cpp.s
-
-.PHONY : cpp/drwArea_Histogram.s
-
-# target to generate assembly for a file
-cpp/drwArea_Histogram.cpp.s:
-	$(MAKE) -f CMakeFiles/rascapp.dir/build.make CMakeFiles/rascapp.dir/cpp/drwArea_Histogram.cpp.s
-.PHONY : cpp/drwArea_Histogram.cpp.s
-
-cpp/loger.o: cpp/loger.cpp.o
-
-.PHONY : cpp/loger.o
+.PHONY : src/cpp/drwArea_Histogram.o
 
 # target to build an object file
-cpp/loger.cpp.o:
-	$(MAKE) -f CMakeFiles/rascapp.dir/build.make CMakeFiles/rascapp.dir/cpp/loger.cpp.o
-.PHONY : cpp/loger.cpp.o
+src/cpp/drwArea_Histogram.cpp.o:
+	$(MAKE) -f CMakeFiles/rascapp.dir/build.make CMakeFiles/rascapp.dir/src/cpp/drwArea_Histogram.cpp.o
+.PHONY : src/cpp/drwArea_Histogram.cpp.o
 
-cpp/loger.i: cpp/loger.cpp.i
+src/cpp/drwArea_Histogram.i: src/cpp/drwArea_Histogram.cpp.i
 
-.PHONY : cpp/loger.i
+.PHONY : src/cpp/drwArea_Histogram.i
 
 # target to preprocess a source file
-cpp/loger.cpp.i:
-	$(MAKE) -f CMakeFiles/rascapp.dir/build.make CMakeFiles/rascapp.dir/cpp/loger.cpp.i
-.PHONY : cpp/loger.cpp.i
+src/cpp/drwArea_Histogram.cpp.i:
+	$(MAKE) -f CMakeFiles/rascapp.dir/build.make CMakeFiles/rascapp.dir/src/cpp/drwArea_Histogram.cpp.i
+.PHONY : src/cpp/drwArea_Histogram.cpp.i
 
-cpp/loger.s: cpp/loger.cpp.s
+src/cpp/drwArea_Histogram.s: src/cpp/drwArea_Histogram.cpp.s
 
-.PHONY : cpp/loger.s
+.PHONY : src/cpp/drwArea_Histogram.s
 
 # target to generate assembly for a file
-cpp/loger.cpp.s:
-	$(MAKE) -f CMakeFiles/rascapp.dir/build.make CMakeFiles/rascapp.dir/cpp/loger.cpp.s
-.PHONY : cpp/loger.cpp.s
+src/cpp/drwArea_Histogram.cpp.s:
+	$(MAKE) -f CMakeFiles/rascapp.dir/build.make CMakeFiles/rascapp.dir/src/cpp/drwArea_Histogram.cpp.s
+.PHONY : src/cpp/drwArea_Histogram.cpp.s
 
-cpp/main-window.o: cpp/main-window.cpp.o
+src/cpp/loger.o: src/cpp/loger.cpp.o
 
-.PHONY : cpp/main-window.o
+.PHONY : src/cpp/loger.o
 
 # target to build an object file
-cpp/main-window.cpp.o:
-	$(MAKE) -f CMakeFiles/rascapp.dir/build.make CMakeFiles/rascapp.dir/cpp/main-window.cpp.o
-.PHONY : cpp/main-window.cpp.o
+src/cpp/loger.cpp.o:
+	$(MAKE) -f CMakeFiles/rascapp.dir/build.make CMakeFiles/rascapp.dir/src/cpp/loger.cpp.o
+.PHONY : src/cpp/loger.cpp.o
 
-cpp/main-window.i: cpp/main-window.cpp.i
+src/cpp/loger.i: src/cpp/loger.cpp.i
 
-.PHONY : cpp/main-window.i
+.PHONY : src/cpp/loger.i
 
 # target to preprocess a source file
-cpp/main-window.cpp.i:
-	$(MAKE) -f CMakeFiles/rascapp.dir/build.make CMakeFiles/rascapp.dir/cpp/main-window.cpp.i
-.PHONY : cpp/main-window.cpp.i
+src/cpp/loger.cpp.i:
+	$(MAKE) -f CMakeFiles/rascapp.dir/build.make CMakeFiles/rascapp.dir/src/cpp/loger.cpp.i
+.PHONY : src/cpp/loger.cpp.i
 
-cpp/main-window.s: cpp/main-window.cpp.s
+src/cpp/loger.s: src/cpp/loger.cpp.s
 
-.PHONY : cpp/main-window.s
+.PHONY : src/cpp/loger.s
 
 # target to generate assembly for a file
-cpp/main-window.cpp.s:
-	$(MAKE) -f CMakeFiles/rascapp.dir/build.make CMakeFiles/rascapp.dir/cpp/main-window.cpp.s
-.PHONY : cpp/main-window.cpp.s
+src/cpp/loger.cpp.s:
+	$(MAKE) -f CMakeFiles/rascapp.dir/build.make CMakeFiles/rascapp.dir/src/cpp/loger.cpp.s
+.PHONY : src/cpp/loger.cpp.s
 
-cpp/main.o: cpp/main.cpp.o
+src/cpp/main-window.o: src/cpp/main-window.cpp.o
 
-.PHONY : cpp/main.o
+.PHONY : src/cpp/main-window.o
 
 # target to build an object file
-cpp/main.cpp.o:
-	$(MAKE) -f CMakeFiles/rascapp.dir/build.make CMakeFiles/rascapp.dir/cpp/main.cpp.o
-.PHONY : cpp/main.cpp.o
+src/cpp/main-window.cpp.o:
+	$(MAKE) -f CMakeFiles/rascapp.dir/build.make CMakeFiles/rascapp.dir/src/cpp/main-window.cpp.o
+.PHONY : src/cpp/main-window.cpp.o
 
-cpp/main.i: cpp/main.cpp.i
+src/cpp/main-window.i: src/cpp/main-window.cpp.i
 
-.PHONY : cpp/main.i
+.PHONY : src/cpp/main-window.i
 
 # target to preprocess a source file
-cpp/main.cpp.i:
-	$(MAKE) -f CMakeFiles/rascapp.dir/build.make CMakeFiles/rascapp.dir/cpp/main.cpp.i
-.PHONY : cpp/main.cpp.i
+src/cpp/main-window.cpp.i:
+	$(MAKE) -f CMakeFiles/rascapp.dir/build.make CMakeFiles/rascapp.dir/src/cpp/main-window.cpp.i
+.PHONY : src/cpp/main-window.cpp.i
 
-cpp/main.s: cpp/main.cpp.s
+src/cpp/main-window.s: src/cpp/main-window.cpp.s
 
-.PHONY : cpp/main.s
+.PHONY : src/cpp/main-window.s
 
 # target to generate assembly for a file
-cpp/main.cpp.s:
-	$(MAKE) -f CMakeFiles/rascapp.dir/build.make CMakeFiles/rascapp.dir/cpp/main.cpp.s
-.PHONY : cpp/main.cpp.s
+src/cpp/main-window.cpp.s:
+	$(MAKE) -f CMakeFiles/rascapp.dir/build.make CMakeFiles/rascapp.dir/src/cpp/main-window.cpp.s
+.PHONY : src/cpp/main-window.cpp.s
 
-cpp/spectrum-drawing-area.o: cpp/spectrum-drawing-area.cpp.o
+src/cpp/main.o: src/cpp/main.cpp.o
 
-.PHONY : cpp/spectrum-drawing-area.o
+.PHONY : src/cpp/main.o
 
 # target to build an object file
-cpp/spectrum-drawing-area.cpp.o:
-	$(MAKE) -f CMakeFiles/rascapp.dir/build.make CMakeFiles/rascapp.dir/cpp/spectrum-drawing-area.cpp.o
-.PHONY : cpp/spectrum-drawing-area.cpp.o
+src/cpp/main.cpp.o:
+	$(MAKE) -f CMakeFiles/rascapp.dir/build.make CMakeFiles/rascapp.dir/src/cpp/main.cpp.o
+.PHONY : src/cpp/main.cpp.o
 
-cpp/spectrum-drawing-area.i: cpp/spectrum-drawing-area.cpp.i
+src/cpp/main.i: src/cpp/main.cpp.i
 
-.PHONY : cpp/spectrum-drawing-area.i
+.PHONY : src/cpp/main.i
 
 # target to preprocess a source file
-cpp/spectrum-drawing-area.cpp.i:
-	$(MAKE) -f CMakeFiles/rascapp.dir/build.make CMakeFiles/rascapp.dir/cpp/spectrum-drawing-area.cpp.i
-.PHONY : cpp/spectrum-drawing-area.cpp.i
+src/cpp/main.cpp.i:
+	$(MAKE) -f CMakeFiles/rascapp.dir/build.make CMakeFiles/rascapp.dir/src/cpp/main.cpp.i
+.PHONY : src/cpp/main.cpp.i
 
-cpp/spectrum-drawing-area.s: cpp/spectrum-drawing-area.cpp.s
+src/cpp/main.s: src/cpp/main.cpp.s
 
-.PHONY : cpp/spectrum-drawing-area.s
+.PHONY : src/cpp/main.s
 
 # target to generate assembly for a file
-cpp/spectrum-drawing-area.cpp.s:
-	$(MAKE) -f CMakeFiles/rascapp.dir/build.make CMakeFiles/rascapp.dir/cpp/spectrum-drawing-area.cpp.s
-.PHONY : cpp/spectrum-drawing-area.cpp.s
+src/cpp/main.cpp.s:
+	$(MAKE) -f CMakeFiles/rascapp.dir/build.make CMakeFiles/rascapp.dir/src/cpp/main.cpp.s
+.PHONY : src/cpp/main.cpp.s
+
+src/cpp/spectrum-drawing-area.o: src/cpp/spectrum-drawing-area.cpp.o
+
+.PHONY : src/cpp/spectrum-drawing-area.o
+
+# target to build an object file
+src/cpp/spectrum-drawing-area.cpp.o:
+	$(MAKE) -f CMakeFiles/rascapp.dir/build.make CMakeFiles/rascapp.dir/src/cpp/spectrum-drawing-area.cpp.o
+.PHONY : src/cpp/spectrum-drawing-area.cpp.o
+
+src/cpp/spectrum-drawing-area.i: src/cpp/spectrum-drawing-area.cpp.i
+
+.PHONY : src/cpp/spectrum-drawing-area.i
+
+# target to preprocess a source file
+src/cpp/spectrum-drawing-area.cpp.i:
+	$(MAKE) -f CMakeFiles/rascapp.dir/build.make CMakeFiles/rascapp.dir/src/cpp/spectrum-drawing-area.cpp.i
+.PHONY : src/cpp/spectrum-drawing-area.cpp.i
+
+src/cpp/spectrum-drawing-area.s: src/cpp/spectrum-drawing-area.cpp.s
+
+.PHONY : src/cpp/spectrum-drawing-area.s
+
+# target to generate assembly for a file
+src/cpp/spectrum-drawing-area.cpp.s:
+	$(MAKE) -f CMakeFiles/rascapp.dir/build.make CMakeFiles/rascapp.dir/src/cpp/spectrum-drawing-area.cpp.s
+.PHONY : src/cpp/spectrum-drawing-area.cpp.s
 
 # Help Target
 help:
@@ -267,21 +267,21 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... rascapp"
 	@echo "... edit_cache"
-	@echo "... cpp/drwArea_Histogram.o"
-	@echo "... cpp/drwArea_Histogram.i"
-	@echo "... cpp/drwArea_Histogram.s"
-	@echo "... cpp/loger.o"
-	@echo "... cpp/loger.i"
-	@echo "... cpp/loger.s"
-	@echo "... cpp/main-window.o"
-	@echo "... cpp/main-window.i"
-	@echo "... cpp/main-window.s"
-	@echo "... cpp/main.o"
-	@echo "... cpp/main.i"
-	@echo "... cpp/main.s"
-	@echo "... cpp/spectrum-drawing-area.o"
-	@echo "... cpp/spectrum-drawing-area.i"
-	@echo "... cpp/spectrum-drawing-area.s"
+	@echo "... src/cpp/drwArea_Histogram.o"
+	@echo "... src/cpp/drwArea_Histogram.i"
+	@echo "... src/cpp/drwArea_Histogram.s"
+	@echo "... src/cpp/loger.o"
+	@echo "... src/cpp/loger.i"
+	@echo "... src/cpp/loger.s"
+	@echo "... src/cpp/main-window.o"
+	@echo "... src/cpp/main-window.i"
+	@echo "... src/cpp/main-window.s"
+	@echo "... src/cpp/main.o"
+	@echo "... src/cpp/main.i"
+	@echo "... src/cpp/main.s"
+	@echo "... src/cpp/spectrum-drawing-area.o"
+	@echo "... src/cpp/spectrum-drawing-area.i"
+	@echo "... src/cpp/spectrum-drawing-area.s"
 .PHONY : help
 
 

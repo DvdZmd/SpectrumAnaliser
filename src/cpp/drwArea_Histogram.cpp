@@ -1,7 +1,7 @@
 #include <syslog.h>
 #include <iostream>
 
-#include "drwArea_Histogram.hpp"
+#include "../hpp/drwArea_Histogram.hpp"
 
 HistogramDrawingArea::HistogramDrawingArea()
 {

@@ -2,7 +2,7 @@
 #define MAIN_WINDOW_H
 
 #include <gtkmm.h>
-#include "loger.hpp"
+#include "logger.hpp"
 #include "spectrum-drawing-area.hpp"
 #include "drwArea_Histogram.hpp"
 
@@ -18,7 +18,7 @@ public:
     uint8_t arrayHistograma[HISTOGRAM_WIDTH];
 
 
-    Loger log;
+    Logger* logger;
     int machineStateSettingArea = 1;
 
 

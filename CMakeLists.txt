@@ -29,11 +29,11 @@ find_package( OpenCV REQUIRED )
 
 # Compile files:
 add_executable(rascapp
-    cpp/main.cpp
-    cpp/main-window.cpp
-    cpp/drwArea_Histogram.cpp
-    cpp/spectrum-drawing-area.cpp
-    cpp/loger.cpp
+    src/cpp/main.cpp
+    src/cpp/main-window.cpp
+    src/cpp/drwArea_Histogram.cpp
+    src/cpp/spectrum-drawing-area.cpp
+    src/cpp/loger.cpp
 )
 
 # Add folder with all headers:
