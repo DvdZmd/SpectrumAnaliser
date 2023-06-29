@@ -7,8 +7,8 @@
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 
-#include "main-window.hpp"
-#include "defines.h"
+#include "../hpp/main-window.hpp"
+#include "../hpp/defines.h"
 
 #define X_INICIAL 1
 #define X_FINAL   2
@@ -40,12 +40,15 @@ MainWindow::MainWindow(int width, int height)
     // Activate Key-Press events
     add_events(Gdk::KEY_PRESS_MASK);
 
-    std::string path = "/mnt/ramdisk/log.txt";
-    log.setLogPath(path);
-    log.clearLog();
-    log.writeLog("Hola");
+    logger = Logger::getInstance();
 
-    spectrumDrawingArea.log = &log;
+    std::string path = "/mnt/ra
+    mdisk/log.txt";
+    log->setLogPath(path);
+    log->clearLog();
+    log->writeLog("Hola");
+
+    // spectrumDrawingArea.log = &log;
 }
 
 
